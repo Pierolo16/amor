@@ -79,11 +79,11 @@ const texto=[
 "",
 "Desde ese día...",
 "",
-"cada sonrisa...",
-"cada abrazo...",
-"cada recuerdo...",
+"Cada sonrisa...",
+"Cada abrazo...",
+"Cada recuerdo...",
 "",
-"se convirtió en parte de nuestra historia ❤️"
+"Se convirtió en parte de nuestra historia ❤️"
 ];
 
 const elemento=document.querySelector(".typing");
