@@ -203,3 +203,68 @@ font-size:28px;
 }
 
 }
+.contador{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.contador-card{
+
+    text-align:center;
+
+}
+
+#contadorTiempo{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-top:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.tiempo{
+
+    background:rgba(255,255,255,.12);
+
+    padding:20px;
+
+    border-radius:20px;
+
+    min-width:110px;
+
+}
+
+.tiempo span{
+
+    display:block;
+
+    font-size:42px;
+
+    font-weight:bold;
+
+    color:#ff77aa;
+
+}
+
+.tiempo small{
+
+    color:white;
+
+    font-size:16px;
+
+}
