@@ -1,0 +1,176 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    font-family:Poppins,sans-serif;
+
+    height:100vh;
+
+    background:linear-gradient(180deg,#050816,#0c1445,#20104d);
+
+}
+
+/* Fondo */
+
+#stars{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    background-image:
+    radial-gradient(white 1px, transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:moveStars 60s linear infinite;
+
+}
+
+@keyframes moveStars{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(1000px);
+
+}
+
+}
+
+/* Centro */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:20px;
+
+}
+
+/* Tarjeta */
+
+.glass{
+
+background:rgba(255,255,255,.1);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.2);
+
+padding:60px;
+
+border-radius:30px;
+
+text-align:center;
+
+color:white;
+
+max-width:700px;
+
+animation:fade 2s;
+
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+h1{
+
+font-size:70px;
+
+font-family:"Great Vibes",cursive;
+
+margin:20px 0;
+
+color:#ff77aa;
+
+}
+
+h2{
+
+font-size:28px;
+
+font-weight:300;
+
+}
+
+p{
+
+margin-top:20px;
+
+line-height:1.8;
+
+font-size:20px;
+
+}
+
+button{
+
+margin-top:40px;
+
+padding:18px 45px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4f8b;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+background:#ff2f74;
+
+box-shadow:0 0 40px #ff4f8b;
+
+}
