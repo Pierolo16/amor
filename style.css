@@ -174,3 +174,32 @@ background:#ff2f74;
 box-shadow:0 0 40px #ff4f8b;
 
 }
+.fade{
+
+transition:1.2s;
+
+}
+
+.typing{
+
+font-size:40px;
+
+line-height:1.8;
+
+font-weight:300;
+
+animation:fade 1s;
+
+color:white;
+
+}
+
+@media(max-width:700px){
+
+.typing{
+
+font-size:28px;
+
+}
+
+}
