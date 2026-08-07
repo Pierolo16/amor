@@ -96,7 +96,11 @@ function escribirLetra(){
     if(linea>=texto.length){
 
         setTimeout(()=>{
-            location.href="#contador";
+            document.getElementById("contador").scrollIntoView({
+    behavior: "smooth"
+});
+
+iniciarContador();
         },2500);
 
         return;
@@ -125,5 +129,32 @@ function escribirLetra(){
 }
 
 escribirLetra();
+
+}
+function iniciarContador(){
+
+    const fechaInicio = new Date("2023-06-13T00:00:00");
+
+    function actualizar(){
+
+        const ahora = new Date();
+
+        const diferencia = ahora - fechaInicio;
+
+        const dias = Math.floor(diferencia / (1000*60*60*24));
+        const horas = Math.floor((diferencia/(1000*60*60))%24);
+        const minutos = Math.floor((diferencia/(1000*60))%60);
+        const segundos = Math.floor((diferencia/1000)%60);
+
+        document.getElementById("dias").textContent = dias;
+        document.getElementById("horas").textContent = horas;
+        document.getElementById("minutos").textContent = minutos;
+        document.getElementById("segundos").textContent = segundos;
+
+    }
+
+    actualizar();
+
+    setInterval(actualizar,1000);
 
 }
