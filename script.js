@@ -325,3 +325,29 @@ document.addEventListener("keydown", (event) => {
     }
 
 });
+// =========================
+// CARTA PARA FÁTIMA
+// =========================
+
+function abrirCarta() {
+
+    const carta =
+        document.getElementById("cartaMensaje");
+
+    carta.classList.add("activa");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+function cerrarCarta() {
+
+    const carta =
+        document.getElementById("cartaMensaje");
+
+    carta.classList.remove("activa");
+
+    document.body.style.overflow = "auto";
+
+}
