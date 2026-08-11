@@ -268,3 +268,170 @@ font-size:28px;
     font-size:16px;
 
 }
+/* =========================
+   GALERÍA
+========================= */
+
+.galeria-section{
+
+    min-height:100vh;
+
+    padding:100px 30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.galeria-contenido{
+
+    width:100%;
+
+    max-width:1100px;
+
+    text-align:center;
+
+}
+
+.subtitulo{
+
+    color:#ff77aa;
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+}
+
+.galeria-contenido h2{
+
+    color:white;
+
+    font-size:42px;
+
+    margin:15px 0;
+
+}
+
+.descripcion{
+
+    color:rgba(255,255,255,.75);
+
+    max-width:650px;
+
+    margin:0 auto 50px;
+
+    line-height:1.8;
+
+}
+
+
+/* CUADRÍCULA */
+
+.galeria{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+/* FOTO */
+
+.foto{
+
+    height:280px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.1);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.35);
+
+    transition:.5s;
+
+}
+
+.foto img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+
+/* EFECTO AL PASAR EL MOUSE */
+
+.foto:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+    box-shadow:
+    0 20px 50px rgba(255,80,140,.25);
+
+}
+
+.foto:hover img{
+
+    transform:scale(1.12);
+
+}
+
+
+/* CELULAR */
+
+@media(max-width:800px){
+
+    .galeria{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .foto{
+
+        height:220px;
+
+    }
+
+    .galeria-contenido h2{
+
+        font-size:30px;
+
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .galeria{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+}
