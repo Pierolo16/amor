@@ -6,13 +6,22 @@
 
 body{
 
-    overflow:hidden;
+    margin:0;
 
     font-family:Poppins,sans-serif;
 
-    height:100vh;
+    min-height:100vh;
 
-    background:linear-gradient(180deg,#050816,#0c1445,#20104d);
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+    background:linear-gradient(
+        180deg,
+        #050816,
+        #0c1445,
+        #20104d
+    );
 
 }
 
