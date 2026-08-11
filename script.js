@@ -1,48 +1,55 @@
 const startBtn = document.getElementById("start");
 
-// Crear corazones
+
+// =========================
+// CORAZONES
+// =========================
+
 const hearts = document.querySelector(".hearts");
 
-function createHeart(){
+function createHeart() {
 
-    const heart=document.createElement("div");
+    const heart = document.createElement("div");
 
-    heart.innerHTML="❤️";
+    heart.innerHTML = "❤️";
 
-    heart.style.position="absolute";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.top="110vh";
-    heart.style.fontSize=(18+Math.random()*25)+"px";
+    heart.style.position = "absolute";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "110vh";
+    heart.style.fontSize = (18 + Math.random() * 25) + "px";
 
-    heart.style.animation="float 8s linear forwards";
+    heart.style.animation = "float 8s linear forwards";
 
     hearts.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
         heart.remove();
-    },8000);
+    }, 8000);
 
 }
 
-setInterval(createHeart,350);
+setInterval(createHeart, 350);
 
 
-// Animación de corazones
-const style=document.createElement("style");
+// =========================
+// ANIMACIÓN DE CORAZONES
+// =========================
 
-style.innerHTML=`
+const style = document.createElement("style");
 
-@keyframes float{
+style.innerHTML = `
 
-0%{
-transform:translateY(0);
-opacity:1;
-}
+@keyframes float {
 
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
 
 }
 
@@ -51,110 +58,270 @@ opacity:0;
 document.head.appendChild(style);
 
 
-// Al presionar el botón
-startBtn.addEventListener("click",()=>{
+// =========================
+// BOTÓN "ABRIR NUESTRA HISTORIA"
+// =========================
+
+startBtn.addEventListener("click", () => {
 
     document.body.classList.add("fade");
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        document.querySelector(".glass").innerHTML=`
+        document.querySelector(".hero .glass").innerHTML = `
 
-<h2 class="typing"></h2>
+            <h2 class="typing"></h2>
 
-`;
+        `;
 
         escribir();
 
-    },1200);
+    }, 1200);
 
 });
 
 
+// =========================
+// HISTORIA
+// =========================
 
-function escribir(){
+function escribir() {
 
-const texto=[
-"Todo comenzó un 13 de junio de 2023...",
-"",
-"Desde ese día...",
-"",
-"Cada sonrisa...",
-"Cada abrazo...",
-"Cada recuerdo...",
-"",
-"Se convirtió en parte de nuestra historia ❤️"
-];
+    const texto = [
+        "Todo comenzó un 13 de junio de 2023...",
+        "",
+        "Desde ese día...",
+        "",
+        "Cada sonrisa...",
+        "Cada abrazo...",
+        "Cada recuerdo...",
+        "",
+        "Se convirtió en parte de nuestra historia ❤️"
+    ];
 
-const elemento=document.querySelector(".typing");
+    const elemento = document.querySelector(".typing");
 
-let linea=0;
-let letra=0;
+    let linea = 0;
+    let letra = 0;
 
-function escribirLetra(){
 
-    if(linea>=texto.length){
+    function escribirLetra() {
 
-        setTimeout(()=>{
-            document.getElementById("contador").scrollIntoView({
-    behavior: "smooth"
-});
+        if (linea >= texto.length) {
 
-iniciarContador();
-        },2500);
+            setTimeout(() => {
 
-        return;
+                document.getElementById("contador").scrollIntoView({
+                    behavior: "smooth"
+                });
+
+                iniciarContador();
+
+            }, 2500);
+
+            return;
+        }
+
+
+        if (letra < texto[linea].length) {
+
+            elemento.innerHTML += texto[linea].charAt(letra);
+
+            letra++;
+
+            setTimeout(escribirLetra, 60);
+
+        } else {
+
+            elemento.innerHTML += "<br>";
+
+            linea++;
+
+            letra = 0;
+
+            setTimeout(escribirLetra, 600);
+
+        }
+
     }
 
-    if(letra<texto[linea].length){
-
-        elemento.innerHTML+=texto[linea].charAt(letra);
-
-        letra++;
-
-        setTimeout(escribirLetra,60);
-
-    }else{
-
-        elemento.innerHTML+="<br>";
-
-        linea++;
-
-        letra=0;
-
-        setTimeout(escribirLetra,600);
-
-    }
+    escribirLetra();
 
 }
 
-escribirLetra();
 
-}
-function iniciarContador(){
+// =========================
+// CONTADOR
+// =========================
+
+function iniciarContador() {
 
     const fechaInicio = new Date("2023-06-13T00:00:00");
 
-    function actualizar(){
+
+    function actualizar() {
 
         const ahora = new Date();
 
         const diferencia = ahora - fechaInicio;
 
-        const dias = Math.floor(diferencia / (1000*60*60*24));
-        const horas = Math.floor((diferencia/(1000*60*60))%24);
-        const minutos = Math.floor((diferencia/(1000*60))%60);
-        const segundos = Math.floor((diferencia/1000)%60);
+
+        const dias = Math.floor(
+            diferencia / (1000 * 60 * 60 * 24)
+        );
+
+        const horas = Math.floor(
+            (diferencia / (1000 * 60 * 60)) % 24
+        );
+
+        const minutos = Math.floor(
+            (diferencia / (1000 * 60)) % 60
+        );
+
+        const segundos = Math.floor(
+            (diferencia / 1000) % 60
+        );
+
 
         document.getElementById("dias").textContent = dias;
+
         document.getElementById("horas").textContent = horas;
+
         document.getElementById("minutos").textContent = minutos;
+
         document.getElementById("segundos").textContent = segundos;
 
     }
 
+
     actualizar();
 
-    setInterval(actualizar,1000);
+    setInterval(actualizar, 1000);
 
 }
+
+
+// =========================
+// VISOR DE FOTOS
+// =========================
+
+const fotos = [
+
+    "img/foto1.jpeg",
+    "img/foto2.jpeg",
+    "img/foto3.jpeg",
+    "img/foto4.jpeg",
+    "img/foto5.jpeg",
+    "img/foto6.jpeg",
+    "img/foto7.jpeg",
+    "img/foto8.jpeg",
+    "img/foto9.jpeg",
+    "img/foto10.jpeg"
+
+];
+
+
+let fotoActual = 0;
+
+
+// Abrir foto
+
+function abrirFoto(numero) {
+
+    fotoActual = numero;
+
+    const visor = document.getElementById("visor");
+
+    visor.classList.add("activo");
+
+    mostrarFoto();
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+// Cerrar foto
+
+function cerrarFoto() {
+
+    document.getElementById("visor").classList.remove("activo");
+
+    document.body.style.overflow = "auto";
+
+}
+
+
+// Mostrar foto
+
+function mostrarFoto() {
+
+    const imagen = document.getElementById("fotoGrande");
+
+    imagen.src = fotos[fotoActual];
+
+    document.getElementById("numeroFoto").textContent =
+        `${fotoActual + 1} / ${fotos.length}`;
+
+}
+
+
+// Siguiente
+
+function fotoSiguiente() {
+
+    fotoActual++;
+
+    if (fotoActual >= fotos.length) {
+
+        fotoActual = 0;
+
+    }
+
+    mostrarFoto();
+
+}
+
+
+// Anterior
+
+function fotoAnterior() {
+
+    fotoActual--;
+
+    if (fotoActual < 0) {
+
+        fotoActual = fotos.length - 1;
+
+    }
+
+    mostrarFoto();
+
+}
+
+
+// =========================
+// TECLADO
+// =========================
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        cerrarFoto();
+
+    }
+
+    if (event.key === "ArrowRight") {
+
+        fotoSiguiente();
+
+    }
+
+    if (event.key === "ArrowLeft") {
+
+        fotoAnterior();
+
+    }
+
+});
