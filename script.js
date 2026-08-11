@@ -1,11 +1,15 @@
+// =========================
+// ELEMENTOS
+// =========================
+
 const startBtn = document.getElementById("start");
 
-
-// =========================
-// CORAZONES
-// =========================
-
 const hearts = document.querySelector(".hearts");
+
+
+// =========================
+// CORAZONES FLOTANTES
+// =========================
 
 function createHeart() {
 
@@ -14,25 +18,32 @@ function createHeart() {
     heart.innerHTML = "❤️";
 
     heart.style.position = "absolute";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "110vh";
-    heart.style.fontSize = (18 + Math.random() * 25) + "px";
 
-    heart.style.animation = "float 8s linear forwards";
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.top = "110vh";
+
+    heart.style.fontSize =
+        (18 + Math.random() * 25) + "px";
+
+    heart.style.animation =
+        "float 8s linear forwards";
 
     hearts.appendChild(heart);
 
     setTimeout(() => {
-        heart.remove();
-    }, 8000);
 
+        heart.remove();
+
+    }, 8000);
 }
 
-setInterval(createHeart, 350);
+setInterval(createHeart, 400);
 
 
 // =========================
-// ANIMACIÓN DE CORAZONES
+// ANIMACIÓN CORAZONES
 // =========================
 
 const style = document.createElement("style");
@@ -59,24 +70,29 @@ document.head.appendChild(style);
 
 
 // =========================
-// BOTÓN "ABRIR NUESTRA HISTORIA"
+// BOTÓN HISTORIA
 // =========================
 
 startBtn.addEventListener("click", () => {
 
+    startBtn.disabled = true;
+
     document.body.classList.add("fade");
+
+    const heroCard =
+        document.querySelector(".hero .glass");
 
     setTimeout(() => {
 
-        document.querySelector(".hero .glass").innerHTML = `
+        heroCard.innerHTML = `
 
             <h2 class="typing"></h2>
 
         `;
 
-        escribir();
+        escribirHistoria();
 
-    }, 1200);
+    }, 1000);
 
 });
 
@@ -85,23 +101,35 @@ startBtn.addEventListener("click", () => {
 // HISTORIA
 // =========================
 
-function escribir() {
+function escribirHistoria() {
 
     const texto = [
+
         "Todo comenzó un 13 de junio de 2023...",
+
         "",
+
         "Desde ese día...",
+
         "",
+
         "Cada sonrisa...",
+
         "Cada abrazo...",
+
         "Cada recuerdo...",
+
         "",
+
         "Se convirtió en parte de nuestra historia ❤️"
+
     ];
 
-    const elemento = document.querySelector(".typing");
+    const elemento =
+        document.querySelector(".typing");
 
     let linea = 0;
+
     let letra = 0;
 
 
@@ -111,13 +139,15 @@ function escribir() {
 
             setTimeout(() => {
 
-                document.getElementById("contador").scrollIntoView({
-                    behavior: "smooth"
-                });
+                document
+                    .getElementById("contador")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
 
                 iniciarContador();
 
-            }, 2500);
+            }, 2000);
 
             return;
         }
@@ -125,28 +155,34 @@ function escribir() {
 
         if (letra < texto[linea].length) {
 
-            elemento.innerHTML += texto[linea].charAt(letra);
+            elemento.innerHTML +=
+                texto[linea].charAt(letra);
 
             letra++;
 
-            setTimeout(escribirLetra, 60);
+            setTimeout(
+                escribirLetra,
+                60
+            );
 
         } else {
 
-            elemento.innerHTML += "<br>";
+            elemento.innerHTML +=
+                "<br>";
 
             linea++;
 
             letra = 0;
 
-            setTimeout(escribirLetra, 600);
-
+            setTimeout(
+                escribirLetra,
+                500
+            );
         }
-
     }
 
-    escribirLetra();
 
+    escribirLetra();
 }
 
 
@@ -154,68 +190,110 @@ function escribir() {
 // CONTADOR
 // =========================
 
+let contadorIniciado = false;
+
 function iniciarContador() {
 
-    const fechaInicio = new Date("2023-06-13T00:00:00");
+    if (contadorIniciado) {
+        return;
+    }
+
+    contadorIniciado = true;
 
 
-    function actualizar() {
-
-        const ahora = new Date();
-
-        const diferencia = ahora - fechaInicio;
-
-
-        const dias = Math.floor(
-            diferencia / (1000 * 60 * 60 * 24)
-        );
-
-        const horas = Math.floor(
-            (diferencia / (1000 * 60 * 60)) % 24
-        );
-
-        const minutos = Math.floor(
-            (diferencia / (1000 * 60)) % 60
-        );
-
-        const segundos = Math.floor(
-            (diferencia / 1000) % 60
+    const fechaInicio =
+        new Date(
+            "2023-06-13T00:00:00"
         );
 
 
-        document.getElementById("dias").textContent = dias;
+    function actualizarContador() {
 
-        document.getElementById("horas").textContent = horas;
+        const ahora =
+            new Date();
 
-        document.getElementById("minutos").textContent = minutos;
+        const diferencia =
+            ahora - fechaInicio;
 
-        document.getElementById("segundos").textContent = segundos;
 
+        const dias =
+            Math.floor(
+                diferencia /
+                (1000 * 60 * 60 * 24)
+            );
+
+
+        const horas =
+            Math.floor(
+                (diferencia /
+                    (1000 * 60 * 60)
+                ) % 24
+            );
+
+
+        const minutos =
+            Math.floor(
+                (diferencia /
+                    (1000 * 60)
+                ) % 60
+            );
+
+
+        const segundos =
+            Math.floor(
+                (diferencia /
+                    1000
+                ) % 60
+            );
+
+
+        document.getElementById("dias")
+            .textContent = dias;
+
+        document.getElementById("horas")
+            .textContent = horas;
+
+        document.getElementById("minutos")
+            .textContent = minutos;
+
+        document.getElementById("segundos")
+            .textContent = segundos;
     }
 
 
-    actualizar();
+    actualizarContador();
 
-    setInterval(actualizar, 1000);
-
+    setInterval(
+        actualizarContador,
+        1000
+    );
 }
 
 
 // =========================
-// VISOR DE FOTOS
+// FOTOS
 // =========================
 
 const fotos = [
 
     "img/foto1.jpeg",
+
     "img/foto2.jpeg",
+
     "img/foto3.jpeg",
+
     "img/foto4.jpeg",
+
     "img/foto5.jpeg",
+
     "img/foto6.jpeg",
+
     "img/foto7.jpeg",
+
     "img/foto8.jpeg",
+
     "img/foto9.jpeg",
+
     "img/foto10.jpeg"
 
 ];
@@ -224,66 +302,83 @@ const fotos = [
 let fotoActual = 0;
 
 
-// Abrir foto
+// =========================
+// ABRIR FOTO
+// =========================
 
 function abrirFoto(numero) {
 
     fotoActual = numero;
 
-    const visor = document.getElementById("visor");
+    const visor =
+        document.getElementById("visor");
 
     visor.classList.add("activo");
 
     mostrarFoto();
 
-    document.body.style.overflow = "hidden";
-
+    document.body.style.overflow =
+        "hidden";
 }
 
 
-// Cerrar foto
+// =========================
+// CERRAR FOTO
+// =========================
 
 function cerrarFoto() {
 
-    document.getElementById("visor").classList.remove("activo");
+    const visor =
+        document.getElementById("visor");
 
-    document.body.style.overflow = "auto";
+    visor.classList.remove("activo");
 
+    document.body.style.overflow =
+        "auto";
 }
 
 
-// Mostrar foto
+// =========================
+// MOSTRAR FOTO
+// =========================
 
 function mostrarFoto() {
 
-    const imagen = document.getElementById("fotoGrande");
+    const imagen =
+        document.getElementById("fotoGrande");
 
-    imagen.src = fotos[fotoActual];
+    imagen.src =
+        fotos[fotoActual];
 
-    document.getElementById("numeroFoto").textContent =
+
+    document.getElementById("numeroFoto")
+        .textContent =
         `${fotoActual + 1} / ${fotos.length}`;
-
 }
 
 
-// Siguiente
+// =========================
+// FOTO SIGUIENTE
+// =========================
 
 function fotoSiguiente() {
 
     fotoActual++;
 
-    if (fotoActual >= fotos.length) {
+    if (
+        fotoActual >= fotos.length
+    ) {
 
         fotoActual = 0;
-
     }
 
     mostrarFoto();
-
 }
 
 
-// Anterior
+// =========================
+// FOTO ANTERIOR
+// =========================
 
 function fotoAnterior() {
 
@@ -291,12 +386,43 @@ function fotoAnterior() {
 
     if (fotoActual < 0) {
 
-        fotoActual = fotos.length - 1;
-
+        fotoActual =
+            fotos.length - 1;
     }
 
     mostrarFoto();
+}
 
+
+// =========================
+// CARTA
+// =========================
+
+function abrirCarta() {
+
+    const carta =
+        document.getElementById(
+            "cartaMensaje"
+        );
+
+    carta.classList.add("activa");
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+function cerrarCarta() {
+
+    const carta =
+        document.getElementById(
+            "cartaMensaje"
+        );
+
+    carta.classList.remove("activa");
+
+    document.body.style.overflow =
+        "auto";
 }
 
 
@@ -304,50 +430,64 @@ function fotoAnterior() {
 // TECLADO
 // =========================
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (event.key === "Escape") {
+        // ESC
 
-        cerrarFoto();
+        if (
+            event.key === "Escape"
+        ) {
+
+            cerrarFoto();
+
+            cerrarCarta();
+        }
+
+
+        // Flecha derecha
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            const visor =
+                document.getElementById(
+                    "visor"
+                );
+
+            if (
+                visor.classList.contains(
+                    "activo"
+                )
+            ) {
+
+                fotoSiguiente();
+            }
+        }
+
+
+        // Flecha izquierda
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            const visor =
+                document.getElementById(
+                    "visor"
+                );
+
+            if (
+                visor.classList.contains(
+                    "activo"
+                )
+            ) {
+
+                fotoAnterior();
+            }
+        }
 
     }
-
-    if (event.key === "ArrowRight") {
-
-        fotoSiguiente();
-
-    }
-
-    if (event.key === "ArrowLeft") {
-
-        fotoAnterior();
-
-    }
-
-});
-// =========================
-// CARTA PARA FÁTIMA
-// =========================
-
-function abrirCarta() {
-
-    const carta =
-        document.getElementById("cartaMensaje");
-
-    carta.classList.add("activa");
-
-    document.body.style.overflow = "hidden";
-
-}
-
-
-function cerrarCarta() {
-
-    const carta =
-        document.getElementById("cartaMensaje");
-
-    carta.classList.remove("activa");
-
-    document.body.style.overflow = "auto";
-
-}
+);
