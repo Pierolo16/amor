@@ -3,7 +3,6 @@
 // =========================
 
 const startBtn = document.getElementById("start");
-
 const hearts = document.querySelector(".hearts");
 
 
@@ -12,6 +11,8 @@ const hearts = document.querySelector(".hearts");
 // =========================
 
 function createHeart() {
+
+    if (!hearts) return;
 
     const heart = document.createElement("div");
 
@@ -30,6 +31,8 @@ function createHeart() {
     heart.style.animation =
         "float 8s linear forwards";
 
+    heart.style.pointerEvents = "none";
+
     hearts.appendChild(heart);
 
     setTimeout(() => {
@@ -39,11 +42,13 @@ function createHeart() {
     }, 8000);
 }
 
+
+// Crear corazones cada cierto tiempo
 setInterval(createHeart, 400);
 
 
 // =========================
-// ANIMACIÓN CORAZONES
+// ANIMACIÓN DE CORAZONES
 // =========================
 
 const style = document.createElement("style");
@@ -73,28 +78,32 @@ document.head.appendChild(style);
 // BOTÓN HISTORIA
 // =========================
 
-startBtn.addEventListener("click", () => {
+if (startBtn) {
 
-    startBtn.disabled = true;
+    startBtn.addEventListener("click", () => {
 
-    document.body.classList.add("fade");
+        startBtn.disabled = true;
 
-    const heroCard =
-        document.querySelector(".hero .glass");
+        document.body.classList.add("fade");
 
-    setTimeout(() => {
+        const heroCard =
+            document.querySelector(".hero .glass");
 
-        heroCard.innerHTML = `
+        setTimeout(() => {
 
-            <h2 class="typing"></h2>
+            heroCard.innerHTML = `
 
-        `;
+                <h2 class="typing"></h2>
 
-        escribirHistoria();
+            `;
 
-    }, 1000);
+            escribirHistoria();
 
-});
+        }, 1000);
+
+    });
+
+}
 
 
 // =========================
@@ -128,6 +137,8 @@ function escribirHistoria() {
     const elemento =
         document.querySelector(".typing");
 
+    if (!elemento) return;
+
     let linea = 0;
 
     let letra = 0;
@@ -139,17 +150,27 @@ function escribirHistoria() {
 
             setTimeout(() => {
 
-                document
-                    .getElementById("contador")
-                    .scrollIntoView({
-                        behavior: "smooth"
+                const contador =
+                    document.getElementById("contador");
+
+                if (contador) {
+
+                    contador.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "center"
+
                     });
+
+                }
 
                 iniciarContador();
 
             }, 2000);
 
             return;
+
         }
 
 
@@ -178,11 +199,14 @@ function escribirHistoria() {
                 escribirLetra,
                 500
             );
+
         }
+
     }
 
 
     escribirLetra();
+
 }
 
 
@@ -192,19 +216,22 @@ function escribirHistoria() {
 
 let contadorIniciado = false;
 
+let intervaloContador = null;
+
+
 function iniciarContador() {
 
     if (contadorIniciado) {
+
         return;
+
     }
 
     contadorIniciado = true;
 
 
     const fechaInicio =
-        new Date(
-            "2023-06-13T00:00:00"
-        );
+        new Date("2023-06-13T00:00:00");
 
 
     function actualizarContador() {
@@ -225,7 +252,8 @@ function iniciarContador() {
 
         const horas =
             Math.floor(
-                (diferencia /
+                (
+                    diferencia /
                     (1000 * 60 * 60)
                 ) % 24
             );
@@ -233,7 +261,8 @@ function iniciarContador() {
 
         const minutos =
             Math.floor(
-                (diferencia /
+                (
+                    diferencia /
                     (1000 * 60)
                 ) % 60
             );
@@ -241,32 +270,69 @@ function iniciarContador() {
 
         const segundos =
             Math.floor(
-                (diferencia /
+                (
+                    diferencia /
                     1000
                 ) % 60
             );
 
 
-        document.getElementById("dias")
-            .textContent = dias;
+        const diasElemento =
+            document.getElementById("dias");
 
-        document.getElementById("horas")
-            .textContent = horas;
+        const horasElemento =
+            document.getElementById("horas");
 
-        document.getElementById("minutos")
-            .textContent = minutos;
+        const minutosElemento =
+            document.getElementById("minutos");
 
-        document.getElementById("segundos")
-            .textContent = segundos;
+        const segundosElemento =
+            document.getElementById("segundos");
+
+
+        if (diasElemento) {
+
+            diasElemento.textContent =
+                dias;
+
+        }
+
+
+        if (horasElemento) {
+
+            horasElemento.textContent =
+                horas;
+
+        }
+
+
+        if (minutosElemento) {
+
+            minutosElemento.textContent =
+                minutos;
+
+        }
+
+
+        if (segundosElemento) {
+
+            segundosElemento.textContent =
+                segundos;
+
+        }
+
     }
 
 
     actualizarContador();
 
-    setInterval(
-        actualizarContador,
-        1000
-    );
+
+    intervaloContador =
+        setInterval(
+            actualizarContador,
+            1000
+        );
+
 }
 
 
@@ -308,17 +374,35 @@ let fotoActual = 0;
 
 function abrirFoto(numero) {
 
+    if (
+        numero < 0 ||
+        numero >= fotos.length
+    ) {
+
+        return;
+
+    }
+
+
     fotoActual = numero;
+
 
     const visor =
         document.getElementById("visor");
 
+
+    if (!visor) return;
+
+
     visor.classList.add("activo");
+
 
     mostrarFoto();
 
+
     document.body.style.overflow =
         "hidden";
+
 }
 
 
@@ -331,10 +415,30 @@ function cerrarFoto() {
     const visor =
         document.getElementById("visor");
 
+
+    if (!visor) return;
+
+
     visor.classList.remove("activo");
 
-    document.body.style.overflow =
-        "auto";
+
+    // Solo desbloqueamos si la carta
+    // tampoco está abierta
+
+    const carta =
+        document.getElementById("cartaMensaje");
+
+
+    if (
+        !carta ||
+        !carta.classList.contains("activa")
+    ) {
+
+        document.body.style.overflow =
+            "auto";
+
+    }
+
 }
 
 
@@ -347,13 +451,25 @@ function mostrarFoto() {
     const imagen =
         document.getElementById("fotoGrande");
 
+
+    const numero =
+        document.getElementById("numeroFoto");
+
+
+    if (!imagen) return;
+
+
     imagen.src =
         fotos[fotoActual];
 
 
-    document.getElementById("numeroFoto")
-        .textContent =
-        `${fotoActual + 1} / ${fotos.length}`;
+    if (numero) {
+
+        numero.textContent =
+            `${fotoActual + 1} / ${fotos.length}`;
+
+    }
+
 }
 
 
@@ -365,14 +481,18 @@ function fotoSiguiente() {
 
     fotoActual++;
 
+
     if (
         fotoActual >= fotos.length
     ) {
 
         fotoActual = 0;
+
     }
 
+
     mostrarFoto();
+
 }
 
 
@@ -384,13 +504,17 @@ function fotoAnterior() {
 
     fotoActual--;
 
+
     if (fotoActual < 0) {
 
         fotoActual =
             fotos.length - 1;
+
     }
 
+
     mostrarFoto();
+
 }
 
 
@@ -401,28 +525,65 @@ function fotoAnterior() {
 function abrirCarta() {
 
     const carta =
-        document.getElementById(
-            "cartaMensaje"
-        );
+        document.getElementById("cartaMensaje");
+
+
+    if (!carta) return;
+
 
     carta.classList.add("activa");
 
+
     document.body.style.overflow =
         "hidden";
+
 }
 
+
+// =========================
+// CERRAR CARTA
+// =========================
 
 function cerrarCarta() {
 
     const carta =
-        document.getElementById(
-            "cartaMensaje"
-        );
+        document.getElementById("cartaMensaje");
+
+
+    if (!carta) return;
+
 
     carta.classList.remove("activa");
 
+
+    // Volvemos a permitir el scroll
     document.body.style.overflow =
         "auto";
+
+}
+
+
+// =========================
+// VOLVER ARRIBA
+// =========================
+
+function volverArriba() {
+
+    // Por si alguna ventana quedó abierta
+
+    cerrarCarta();
+
+    cerrarFoto();
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
 }
 
 
@@ -434,75 +595,146 @@ document.addEventListener(
     "keydown",
     (event) => {
 
+
+        // =====================
         // ESC
+        // =====================
 
         if (
             event.key === "Escape"
         ) {
 
-            cerrarFoto();
+            const visor =
+                document.getElementById("visor");
 
-            cerrarCarta();
+            const carta =
+                document.getElementById("cartaMensaje");
+
+
+            if (
+                visor &&
+                visor.classList.contains("activo")
+            ) {
+
+                cerrarFoto();
+
+            }
+
+
+            if (
+                carta &&
+                carta.classList.contains("activa")
+            ) {
+
+                cerrarCarta();
+
+            }
+
         }
 
 
-        // Flecha derecha
+        // =====================
+        // FLECHA DERECHA
+        // =====================
 
         if (
             event.key === "ArrowRight"
         ) {
 
             const visor =
-                document.getElementById(
-                    "visor"
-                );
+                document.getElementById("visor");
+
 
             if (
-                visor.classList.contains(
-                    "activo"
-                )
+                visor &&
+                visor.classList.contains("activo")
             ) {
 
                 fotoSiguiente();
+
             }
+
         }
 
 
-        // Flecha izquierda
+        // =====================
+        // FLECHA IZQUIERDA
+        // =====================
 
         if (
             event.key === "ArrowLeft"
         ) {
 
             const visor =
-                document.getElementById(
-                    "visor"
-                );
+                document.getElementById("visor");
+
 
             if (
-                visor.classList.contains(
-                    "activo"
-                )
+                visor &&
+                visor.classList.contains("activo")
             ) {
 
                 fotoAnterior();
+
             }
+
         }
 
     }
 );
+
+
 // =========================
-// VOLVER AL PRINCIPIO
+// CLIC FUERA DE LA CARTA
 // =========================
 
-function volverArriba() {
+const cartaMensaje =
+    document.getElementById("cartaMensaje");
 
-    window.scrollTo({
 
-        top: 0,
+if (cartaMensaje) {
 
-        behavior: "smooth"
+    cartaMensaje.addEventListener(
+        "click",
+        (event) => {
 
-    });
+            if (
+                event.target === cartaMensaje
+            ) {
+
+                cerrarCarta();
+
+            }
+
+        }
+    );
+
+}
+
+
+// =========================
+// CLIC FUERA DEL VISOR
+// =========================
+
+const visor =
+    document.getElementById("visor");
+
+
+if (visor) {
+
+    visor.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target === visor
+            ) {
+
+                cerrarFoto();
+
+            }
+
+        }
+    );
 
 }
