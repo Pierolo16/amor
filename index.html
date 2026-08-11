@@ -96,47 +96,49 @@
                 contigo una y otra vez.
             </p>
 
-            <div class="galeria">
+<div class="galeria">
 
-                <div class="foto">
-                    <img src="img/foto1.jpeg" alt="Nuestro recuerdo 1">
-                </div>
+    <div class="foto" onclick="abrirFoto(0)">
+        <img src="img/foto1.jpeg" alt="Nuestro recuerdo 1">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto2.jpeg" alt="Nuestro recuerdo 2">
-                </div>
+    <div class="foto" onclick="abrirFoto(1)">
+        <img src="img/foto2.jpeg" alt="Nuestro recuerdo 2">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto3.jpeg" alt="Nuestro recuerdo 3">
-                </div>
+    <div class="foto" onclick="abrirFoto(2)">
+        <img src="img/foto3.jpeg" alt="Nuestro recuerdo 3">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto4.jpeg" alt="Nuestro recuerdo 4">
-                </div>
+    <div class="foto" onclick="abrirFoto(3)">
+        <img src="img/foto4.jpeg" alt="Nuestro recuerdo 4">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto5.jpeg" alt="Nuestro recuerdo 5">
-                </div>
+    <div class="foto" onclick="abrirFoto(4)">
+        <img src="img/foto5.jpeg" alt="Nuestro recuerdo 5">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto6.jpeg" alt="Nuestro recuerdo 6">
-                </div>
+    <div class="foto" onclick="abrirFoto(5)">
+        <img src="img/foto6.jpeg" alt="Nuestro recuerdo 6">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto7.jpeg" alt="Nuestro recuerdo 7">
-                </div>
+    <div class="foto" onclick="abrirFoto(6)">
+        <img src="img/foto7.jpeg" alt="Nuestro recuerdo 7">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto8.jpeg" alt="Nuestro recuerdo 8">
-                </div>
+    <div class="foto" onclick="abrirFoto(7)">
+        <img src="img/foto8.jpeg" alt="Nuestro recuerdo 8">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto9.jpeg" alt="Nuestro recuerdo 9">
-                </div>
+    <div class="foto" onclick="abrirFoto(8)">
+        <img src="img/foto9.jpeg" alt="Nuestro recuerdo 9">
+    </div>
 
-                <div class="foto">
-                    <img src="img/foto10.jpeg" alt="Nuestro recuerdo 10">
-                </div>
+    <div class="foto" onclick="abrirFoto(9)">
+        <img src="img/foto10.jpeg" alt="Nuestro recuerdo 10">
+    </div>
+
+</div>
 
             </div>
 
@@ -144,7 +146,24 @@
 
     </section>
 
+<!-- VISOR DE FOTOS -->
+<div id="visor" class="visor">
 
+    <button class="cerrar" onclick="cerrarFoto()">×</button>
+
+    <button class="flecha izquierda" onclick="fotoAnterior()">
+        ❮
+    </button>
+
+    <img id="fotoGrande" src="" alt="Foto de nuestro recuerdo">
+
+    <button class="flecha derecha" onclick="fotoSiguiente()">
+        ❯
+    </button>
+
+    <div id="numeroFoto"></div>
+
+</div>
     <script src="script.js"></script>
 
 </body>
