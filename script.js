@@ -491,3 +491,18 @@ document.addEventListener(
 
     }
 );
+// =========================
+// VOLVER AL PRINCIPIO
+// =========================
+
+function volverArriba() {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
