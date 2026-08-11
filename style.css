@@ -444,3 +444,213 @@ font-size:28px;
     }
 
 }
+/* =========================
+   VISOR DE FOTOS
+========================= */
+
+.visor {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.94);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .4s;
+
+    backdrop-filter: blur(10px);
+
+}
+
+.visor.activo {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+#fotoGrande {
+
+    max-width: 85%;
+
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 0 60px rgba(255, 80, 150, .25);
+
+    transform: scale(.85);
+
+    transition: .4s;
+
+}
+
+.visor.activo #fotoGrande {
+
+    transform: scale(1);
+
+}
+
+
+/* BOTÓN CERRAR */
+
+.cerrar {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 35px;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 50px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition: .3s;
+
+}
+
+.cerrar:hover {
+
+    transform: scale(1.2);
+
+    color: #ff77aa;
+
+}
+
+
+/* FLECHAS */
+
+.flecha {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    background: rgba(255,255,255,.1);
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.flecha:hover {
+
+    background: rgba(255,80,150,.4);
+
+    transform: translateY(-50%) scale(1.1);
+
+}
+
+.izquierda {
+
+    left: 30px;
+
+}
+
+.derecha {
+
+    right: 30px;
+
+}
+
+
+/* NÚMERO */
+
+#numeroFoto {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    color: white;
+
+    font-size: 16px;
+
+    opacity: .8;
+
+}
+
+
+/* CELULAR */
+
+@media(max-width:600px) {
+
+    #fotoGrande {
+
+        max-width: 90%;
+
+        max-height: 75vh;
+
+    }
+
+    .flecha {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 18px;
+
+    }
+
+    .izquierda {
+
+        left: 10px;
+
+    }
+
+    .derecha {
+
+        right: 10px;
+
+    }
+
+    .cerrar {
+
+        top: 10px;
+
+        right: 15px;
+
+    }
+
+}
