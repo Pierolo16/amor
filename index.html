@@ -2,22 +2,17 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nuestra Historia ❤️</title>
+    <title>Para Fátima ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap"
         rel="stylesheet">
-
 </head>
-
 
 <body>
 
@@ -26,40 +21,55 @@
     ========================== -->
 
     <div id="stars"></div>
-
     <div class="hearts"></div>
 
 
     <!-- =========================
-         PANTALLA DE BIENVENIDA
+         BIENVENIDA
     ========================== -->
 
     <section class="hero">
 
-        <div class="glass">
+        <div class="glass hero-card">
 
-            <h2>
+            <p class="mini-titulo">
                 Para la persona que cambió mi vida
-            </h2>
+            </p>
 
             <h1>
                 ❤️ Mi Amor ❤️
             </h1>
 
-            <p>
+            <p class="hero-text">
                 Hay miles de páginas en Internet...
+                <br>
                 pero esta solo existe para recordarte
+                <br>
                 cuánto te amo.
             </p>
 
             <button id="start">
-                Abrir nuestra historia
+                Abrir nuestra historia ❤️
             </button>
 
         </div>
 
     </section>
 
+
+    <!-- =========================
+         HISTORIA
+    ========================== -->
+
+    <section id="historia" class="historia-section">
+
+        <div class="glass historia-card">
+
+            <h2 class="typing"></h2>
+
+        </div>
+
+    </section>
 
 
     <!-- =========================
@@ -70,62 +80,39 @@
 
         <div class="glass contador-card">
 
+            <p class="subtitulo">
+                Desde aquel día...
+            </p>
+
             <h2>
                 ❤️ Nuestro tiempo juntos ❤️
             </h2>
 
+            <p class="contador-descripcion">
+                Y cada segundo sigue formando parte
+                de nuestra historia.
+            </p>
 
             <div id="contadorTiempo">
 
                 <div class="tiempo">
-
-                    <span id="dias">
-                        0
-                    </span>
-
-                    <small>
-                        Días
-                    </small>
-
+                    <span id="dias">0</span>
+                    <small>Días</small>
                 </div>
 
-
                 <div class="tiempo">
-
-                    <span id="horas">
-                        0
-                    </span>
-
-                    <small>
-                        Horas
-                    </small>
-
+                    <span id="horas">0</span>
+                    <small>Horas</small>
                 </div>
 
-
                 <div class="tiempo">
-
-                    <span id="minutos">
-                        0
-                    </span>
-
-                    <small>
-                        Minutos
-                    </small>
-
+                    <span id="minutos">0</span>
+                    <small>Minutos</small>
                 </div>
 
-
                 <div class="tiempo">
-
-                    <span id="segundos">
-                        0
-                    </span>
-
-                    <small>
-                        Segundos
-                    </small>
-
+                    <span id="segundos">0</span>
+                    <small>Segundos</small>
                 </div>
 
             </div>
@@ -133,184 +120,81 @@
         </div>
 
     </section>
-
 
 
     <!-- =========================
          GALERÍA
     ========================== -->
 
-    <section
-        id="galeria"
-        class="galeria-section"
-    >
+    <section id="galeria" class="galeria-section">
 
         <div class="galeria-contenido">
-
 
             <p class="subtitulo">
                 Nuestros recuerdos
             </p>
 
-
             <h2>
                 📸 Momentos que quiero guardar para siempre
             </h2>
 
-
             <p class="descripcion">
-
-                Cada fotografía guarda un momento
-                que volvería a vivir contigo
-                una y otra vez.
-
+                Cada fotografía guarda un momento que volvería
+                a vivir contigo una y otra vez.
             </p>
 
 
-
-            <!-- FOTOS -->
-
             <div class="galeria">
 
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(0)"
-                >
-
-                    <img
-                        src="img/foto1.jpeg"
-                        alt="Nuestro recuerdo 1"
-                    >
-
+                <div class="foto" onclick="abrirFoto(0)">
+                    <img src="img/foto1.jpeg" alt="Nuestro recuerdo 1">
+                    <span>Recuerdo #1 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(1)"
-                >
-
-                    <img
-                        src="img/foto2.jpeg"
-                        alt="Nuestro recuerdo 2"
-                    >
-
+                <div class="foto" onclick="abrirFoto(1)">
+                    <img src="img/foto2.jpeg" alt="Nuestro recuerdo 2">
+                    <span>Recuerdo #2 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(2)"
-                >
-
-                    <img
-                        src="img/foto3.jpeg"
-                        alt="Nuestro recuerdo 3"
-                    >
-
+                <div class="foto" onclick="abrirFoto(2)">
+                    <img src="img/foto3.jpeg" alt="Nuestro recuerdo 3">
+                    <span>Recuerdo #3 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(3)"
-                >
-
-                    <img
-                        src="img/foto4.jpeg"
-                        alt="Nuestro recuerdo 4"
-                    >
-
+                <div class="foto" onclick="abrirFoto(3)">
+                    <img src="img/foto4.jpeg" alt="Nuestro recuerdo 4">
+                    <span>Recuerdo #4 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(4)"
-                >
-
-                    <img
-                        src="img/foto5.jpeg"
-                        alt="Nuestro recuerdo 5"
-                    >
-
+                <div class="foto" onclick="abrirFoto(4)">
+                    <img src="img/foto5.jpeg" alt="Nuestro recuerdo 5">
+                    <span>Recuerdo #5 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(5)"
-                >
-
-                    <img
-                        src="img/foto6.jpeg"
-                        alt="Nuestro recuerdo 6"
-                    >
-
+                <div class="foto" onclick="abrirFoto(5)">
+                    <img src="img/foto6.jpeg" alt="Nuestro recuerdo 6">
+                    <span>Recuerdo #6 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(6)"
-                >
-
-                    <img
-                        src="img/foto7.jpeg"
-                        alt="Nuestro recuerdo 7"
-                    >
-
+                <div class="foto" onclick="abrirFoto(6)">
+                    <img src="img/foto7.jpeg" alt="Nuestro recuerdo 7">
+                    <span>Recuerdo #7 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(7)"
-                >
-
-                    <img
-                        src="img/foto8.jpeg"
-                        alt="Nuestro recuerdo 8"
-                    >
-
+                <div class="foto" onclick="abrirFoto(7)">
+                    <img src="img/foto8.jpeg" alt="Nuestro recuerdo 8">
+                    <span>Recuerdo #8 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(8)"
-                >
-
-                    <img
-                        src="img/foto9.jpeg"
-                        alt="Nuestro recuerdo 9"
-                    >
-
+                <div class="foto" onclick="abrirFoto(8)">
+                    <img src="img/foto9.jpeg" alt="Nuestro recuerdo 9">
+                    <span>Recuerdo #9 ❤️</span>
                 </div>
 
-
-
-                <div
-                    class="foto"
-                    onclick="abrirFoto(9)"
-                >
-
-                    <img
-                        src="img/foto10.jpeg"
-                        alt="Nuestro recuerdo 10"
-                    >
-
+                <div class="foto" onclick="abrirFoto(9)">
+                    <img src="img/foto10.jpeg" alt="Nuestro recuerdo 10">
+                    <span>Recuerdo #10 ❤️</span>
                 </div>
-
 
             </div>
 
@@ -319,36 +203,27 @@
     </section>
 
 
-
     <!-- =========================
-         CARTA PARA FÁTIMA
+         CARTA
     ========================== -->
 
-    <section
-        id="carta"
-        class="carta-section"
-    >
+    <section id="carta" class="carta-section">
 
         <div class="carta-contenido">
-
 
             <p class="subtitulo">
                 Algo que quiero decirte
             </p>
 
-
             <h2>
-                💌 Para Fátima
+                💌 Una carta para Fátima
             </h2>
 
-
             <p class="descripcion">
-
-                Hay cosas que no siempre sé
-                cómo decirte...
-
+                Hay cosas que no siempre sé cómo decirte...
+                <br>
+                así que decidí escribirlas aquí.
             </p>
-
 
 
             <!-- SOBRE -->
@@ -359,14 +234,9 @@
                 onclick="abrirCarta()"
             >
 
-                <div class="sobre-parte">
-
-                    <span>
-                        ❤️
-                    </span>
-
+                <div class="sobre-corazon">
+                    ❤️
                 </div>
-
 
                 <div class="sobre-texto">
 
@@ -382,125 +252,87 @@
 
             </div>
 
-
-
-            <!-- CARTA ABIERTA -->
-
-            <div
-                id="cartaMensaje"
-                class="carta-mensaje"
-            >
-
-
-                <button
-                    class="cerrar-carta"
-                    onclick="cerrarCarta()"
-                >
-                    ×
-                </button>
-
-
-
-                <div class="carta-hoja">
-
-
-                    <p class="carta-saludo">
-                        Mi amor, Fátima ❤️
-                    </p>
-
-
-
-                    <p>
-
-                        Desde aquel
-                        <strong>
-                            13 de junio de 2023
-                        </strong>,
-
-                        mi vida cambió de una manera
-                        que jamás imaginé.
-
-                    </p>
-
-
-
-                    <p>
-
-                        Hemos creado recuerdos que quiero
-                        guardar para siempre.
-
-                        Cada sonrisa, cada abrazo,
-                        cada momento contigo significa
-                        muchísimo para mí.
-
-                    </p>
-
-
-
-                    <p>
-
-                        Gracias por estar a mi lado,
-                        por hacer mis días más bonitos
-                        y por convertir momentos normales
-                        en recuerdos que nunca quiero olvidar.
-
-                    </p>
-
-
-
-                    <p>
-
-                        No sé qué nos espera en el futuro...
-
-                        pero sí sé una cosa:
-
-                    </p>
-
-
-
-                    <p class="frase-final">
-
-                        Quiero seguir escribiendo
-                        nuestra historia contigo. ❤️
-
-                    </p>
-
-
-
-                    <p class="firma">
-
-                        Con todo mi amor,
-
-                        <br>
-
-                        <strong>
-                            Tu persona ❤️
-                        </strong>
-
-                    </p>
-
-
-                </div>
-
-            </div>
-
         </div>
 
     </section>
 
+
+    <!-- =========================
+         CARTA ABIERTA
+    ========================== -->
+
+    <div id="cartaMensaje" class="carta-mensaje">
+
+        <button
+            class="cerrar-carta"
+            onclick="cerrarCarta()"
+        >
+            ×
+        </button>
+
+
+        <div class="carta-hoja">
+
+            <div class="carta-decoracion">
+                ❤️
+            </div>
+
+            <p class="carta-saludo">
+                Mi amor, Fátima ❤️
+            </p>
+
+            <p>
+                Desde aquel
+                <strong>13 de junio de 2023</strong>,
+                mi vida cambió de una manera que jamás imaginé.
+            </p>
+
+            <p>
+                Desde entonces hemos creado recuerdos que quiero
+                guardar para siempre. Cada sonrisa, cada abrazo,
+                cada conversación y cada momento contigo se ha
+                convertido en una parte muy especial de mi vida.
+            </p>
+
+            <p>
+                Gracias por estar a mi lado, por hacer mis días
+                más bonitos y por convertir momentos normales
+                en recuerdos que nunca quiero olvidar.
+            </p>
+
+            <p>
+                Si pudiera volver al primer día en que comenzó
+                nuestra historia, volvería a elegirte sin pensarlo.
+            </p>
+
+            <p>
+                No sé exactamente qué nos espera en el futuro...
+                pero sí sé algo:
+            </p>
+
+            <p class="frase-final">
+                Quiero seguir escribiendo nuestra historia
+                contigo. ❤️
+            </p>
+
+            <p class="firma">
+                Con todo mi amor,
+                <br>
+                <strong>
+                    Tu persona ❤️
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
 
 
     <!-- =========================
          VISOR DE FOTOS
     ========================== -->
 
-    <div
-        id="visor"
-        class="visor"
-    >
-
-
-        <!-- CERRAR -->
+    <div id="visor" class="visor">
 
         <button
             class="cerrar"
@@ -509,10 +341,6 @@
             ×
         </button>
 
-
-
-        <!-- ANTERIOR -->
-
         <button
             class="flecha izquierda"
             onclick="fotoAnterior()"
@@ -520,19 +348,11 @@
             ❮
         </button>
 
-
-
-        <!-- FOTO GRANDE -->
-
         <img
             id="fotoGrande"
             src=""
             alt="Foto de nuestro recuerdo"
         >
-
-
-
-        <!-- SIGUIENTE -->
 
         <button
             class="flecha derecha"
@@ -541,15 +361,9 @@
             ❯
         </button>
 
-
-
-        <!-- NÚMERO -->
-
         <div id="numeroFoto"></div>
 
-
     </div>
-
 
 
     <!-- =========================
@@ -557,7 +371,6 @@
     ========================== -->
 
     <script src="script.js"></script>
-
 
 </body>
 
