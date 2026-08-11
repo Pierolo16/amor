@@ -18,7 +18,11 @@
 
     <div class="hearts"></div>
 
-    <!-- BIENVENIDA -->
+
+    <!-- =========================
+         BIENVENIDA
+    ========================== -->
+
     <section class="hero">
 
         <div class="glass">
@@ -42,7 +46,10 @@
     </section>
 
 
-    <!-- CONTADOR -->
+    <!-- =========================
+         CONTADOR
+    ========================== -->
+
     <section id="contador" class="contador">
 
         <div class="glass contador-card">
@@ -78,7 +85,10 @@
     </section>
 
 
-    <!-- GALERÍA -->
+    <!-- =========================
+         GALERÍA
+    ========================== -->
+
     <section id="galeria" class="galeria-section">
 
         <div class="galeria-contenido">
@@ -96,49 +106,48 @@
                 contigo una y otra vez.
             </p>
 
-<div class="galeria">
 
-    <div class="foto" onclick="abrirFoto(0)">
-        <img src="img/foto1.jpeg" alt="Nuestro recuerdo 1">
-    </div>
+            <div class="galeria">
 
-    <div class="foto" onclick="abrirFoto(1)">
-        <img src="img/foto2.jpeg" alt="Nuestro recuerdo 2">
-    </div>
+                <div class="foto" onclick="abrirFoto(0)">
+                    <img src="img/foto1.jpeg" alt="Nuestro recuerdo 1">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(2)">
-        <img src="img/foto3.jpeg" alt="Nuestro recuerdo 3">
-    </div>
+                <div class="foto" onclick="abrirFoto(1)">
+                    <img src="img/foto2.jpeg" alt="Nuestro recuerdo 2">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(3)">
-        <img src="img/foto4.jpeg" alt="Nuestro recuerdo 4">
-    </div>
+                <div class="foto" onclick="abrirFoto(2)">
+                    <img src="img/foto3.jpeg" alt="Nuestro recuerdo 3">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(4)">
-        <img src="img/foto5.jpeg" alt="Nuestro recuerdo 5">
-    </div>
+                <div class="foto" onclick="abrirFoto(3)">
+                    <img src="img/foto4.jpeg" alt="Nuestro recuerdo 4">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(5)">
-        <img src="img/foto6.jpeg" alt="Nuestro recuerdo 6">
-    </div>
+                <div class="foto" onclick="abrirFoto(4)">
+                    <img src="img/foto5.jpeg" alt="Nuestro recuerdo 5">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(6)">
-        <img src="img/foto7.jpeg" alt="Nuestro recuerdo 7">
-    </div>
+                <div class="foto" onclick="abrirFoto(5)">
+                    <img src="img/foto6.jpeg" alt="Nuestro recuerdo 6">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(7)">
-        <img src="img/foto8.jpeg" alt="Nuestro recuerdo 8">
-    </div>
+                <div class="foto" onclick="abrirFoto(6)">
+                    <img src="img/foto7.jpeg" alt="Nuestro recuerdo 7">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(8)">
-        <img src="img/foto9.jpeg" alt="Nuestro recuerdo 9">
-    </div>
+                <div class="foto" onclick="abrirFoto(7)">
+                    <img src="img/foto8.jpeg" alt="Nuestro recuerdo 8">
+                </div>
 
-    <div class="foto" onclick="abrirFoto(9)">
-        <img src="img/foto10.jpeg" alt="Nuestro recuerdo 10">
-    </div>
+                <div class="foto" onclick="abrirFoto(8)">
+                    <img src="img/foto9.jpeg" alt="Nuestro recuerdo 9">
+                </div>
 
-</div>
+                <div class="foto" onclick="abrirFoto(9)">
+                    <img src="img/foto10.jpeg" alt="Nuestro recuerdo 10">
+                </div>
 
             </div>
 
@@ -146,24 +155,32 @@
 
     </section>
 
-<!-- VISOR DE FOTOS -->
-<div id="visor" class="visor">
 
-    <button class="cerrar" onclick="cerrarFoto()">×</button>
+    <!-- =========================
+         VISOR DE FOTOS
+    ========================== -->
 
-    <button class="flecha izquierda" onclick="fotoAnterior()">
-        ❮
-    </button>
+    <div id="visor" class="visor">
 
-    <img id="fotoGrande" src="" alt="Foto de nuestro recuerdo">
+        <button class="cerrar" onclick="cerrarFoto()">
+            ×
+        </button>
 
-    <button class="flecha derecha" onclick="fotoSiguiente()">
-        ❯
-    </button>
+        <button class="flecha izquierda" onclick="fotoAnterior()">
+            ❮
+        </button>
 
-    <div id="numeroFoto"></div>
+        <img id="fotoGrande" src="" alt="Foto de nuestro recuerdo">
 
-</div>
+        <button class="flecha derecha" onclick="fotoSiguiente()">
+            ❯
+        </button>
+
+        <div id="numeroFoto"></div>
+
+    </div>
+
+
     <script src="script.js"></script>
 
 </body>
